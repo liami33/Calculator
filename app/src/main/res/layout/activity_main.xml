@@ -8,7 +8,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/resultDisplay"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="1"
         android:id="@+id/button1"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/resultDisplay"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="29dp"
@@ -59,7 +59,7 @@
         android:layout_toRightOf="@+id/button3"
         android:layout_toEndOf="@+id/button3"
         android:textStyle="bold"
-        android:onClick="whenButtonClicked" />
+        android:onClick="whenClearClicked" />
 
     <Button
         android:layout_width="wrap_content"
@@ -174,7 +174,7 @@
         android:layout_marginRight="29dp"
         android:layout_marginEnd="29dp"
         android:layout_alignTop="@+id/button0"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
+        android:layout_alignRight="@+id/resultDisplay"
+        android:layout_alignEnd="@+id/resultDisplay"
         android:onClick="whenButtonClicked" />
 </RelativeLayout>

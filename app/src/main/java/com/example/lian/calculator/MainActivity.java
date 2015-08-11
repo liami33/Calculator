@@ -10,10 +10,24 @@ import android.widget.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    public void whenButtonClicked (View V) {
+
+    public void whenButtonClicked(View V) {
+        // V is a reference for the widget that was clicked
+        EditText disp;
+        disp = (EditText) findViewById(R.id.resultDisplay);
         Button b = (Button) V;
-        CharSequence cs = b.getText();
-        Log.i("Button clicked: ", cs.toString());
+        CharSequence buttonText = b.getText();
+        String oldText = disp.getText().toString();
+        String newText = oldText + buttonText.toString();
+        disp.setText(newText);
+        Log.i("Button clicked: ", buttonText.toString());
+
+    }
+
+    public void whenClearClicked(View V) {
+        EditText disp;
+        disp = (EditText) findViewById(R.id.resultDisplay);
+        disp.setText("0");
     }
 
     @Override
