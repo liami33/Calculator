@@ -10,6 +10,12 @@ import android.widget.*;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean operatorOnDisplay = false;
+
+    public String getDisplayText() {
+        EditText disp = (EditText) findViewById(R.id.resultDisplay);
+        return disp.getText().toString();
+    }
 
     public void whenButtonClicked(View V) {
         // V is a reference for the widget that was clicked
@@ -17,17 +23,53 @@ public class MainActivity extends AppCompatActivity {
         disp = (EditText) findViewById(R.id.resultDisplay);
         Button b = (Button) V;
         CharSequence buttonText = b.getText();
+        if (buttonText == "3")
+            Log.i("Button clicked:", "3");
         String oldText = disp.getText().toString();
         String newText = oldText + buttonText.toString();
         disp.setText(newText);
-        Log.i("Button clicked: ", buttonText.toString());
+        //Log.i("Button clicked: ", buttonText.toString());
+
+    }
+
+    public void whenOperatorClicked(View V) {
+        if (operatorOnDisplay) return;
+        whenButtonClicked(V);
+        operatorOnDisplay = true;
 
     }
 
     public void whenClearClicked(View V) {
         EditText disp;
         disp = (EditText) findViewById(R.id.resultDisplay);
-        disp.setText("0");
+        disp.setText("");
+        operatorOnDisplay = false;
+    }
+
+    public void whenEqualsClicked(View V) {
+        String displayText = getDisplayText();
+        long result = 0;
+        if (displayText.contains("+")) {
+            String[] parts = displayText.split("\\+");
+            result = Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]);
+            if (result==20)
+                Log.i("Sum:","20");
+        }
+        if (displayText.contains("-")) {
+            String[] parts = displayText.split("-");
+            result = Integer.parseInt(parts[0]) - Integer.parseInt(parts[1]);
+            if (result==17)
+                Log.i("Subtract:","17");
+        }
+        EditText disp = (EditText) findViewById(R.id.resultDisplay);
+        disp.setText(Long.toString(result));
+        operatorOnDisplay = false;
+    }
+
+    public void whenImageClicked(View V) {
+        ImageButton btn = (ImageButton) findViewById(R.id.imageButton);
+        btn.setImageResource(R.drawable.cat);
+        Log.i("Cats Rule", "image has changed");
     }
 
     @Override
