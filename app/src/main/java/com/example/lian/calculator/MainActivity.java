@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void whenButtonClicked(View V) {
-        // V is a reference for the widget that was clicked
+        // V is a reference for the object that was clicked
         EditText disp;
         disp = (EditText) findViewById(R.id.resultDisplay);
         Button b = (Button) V;
         CharSequence buttonText = b.getText();
-        if (buttonText == "3")
+        if (buttonText.toString().equals(("3")))
             Log.i("Button clicked:", "3");
         String oldText = disp.getText().toString();
         String newText = oldText + buttonText.toString();
