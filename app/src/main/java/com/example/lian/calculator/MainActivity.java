@@ -12,11 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean operatorOnDisplay = false;
 
-    public String getDisplayText() {
-        EditText disp = (EditText) findViewById(R.id.resultDisplay);
-        return disp.getText().toString();
-    }
-
     public void whenButtonClicked(View V) {
         // V is a reference for the object that was clicked
         EditText disp;
@@ -47,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void whenEqualsClicked(View V) {
-        String displayText = getDisplayText();
+        EditText disp = (EditText) findViewById(R.id.resultDisplay);
+        String displayText =  disp.getText().toString();
         long result = 0;
         if (displayText.contains("+")) {
             String[] parts = displayText.split("\\+");
@@ -61,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             if (result==17)
                 Log.i("Subtract:","17");
         }
-        EditText disp = (EditText) findViewById(R.id.resultDisplay);
         disp.setText(Long.toString(result));
         operatorOnDisplay = false;
     }
