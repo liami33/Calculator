@@ -185,6 +185,7 @@
         android:layout_below="@+id/button7"
         android:layout_toLeftOf="@+id/button9"
         android:layout_toStartOf="@+id/button9"
-        android:onClick="whenImageClicked" />
+        android:onClick="whenImageClicked"
+        android:scaleType="fitXY" />
 
 </RelativeLayout>
