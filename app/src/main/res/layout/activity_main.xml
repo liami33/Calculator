@@ -157,11 +157,11 @@
         android:id="@+id/button0"
         android:textStyle="bold"
         android:onClick="whenButtonClicked"
-        android:layout_below="@+id/button9"
-        android:layout_toLeftOf="@+id/buttonEq"
-        android:layout_marginTop="45dp"
         android:layout_alignLeft="@+id/button9"
-        android:layout_alignStart="@+id/button9" />
+        android:layout_alignStart="@+id/button9"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_below="@+id/button9"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -169,10 +169,12 @@
         android:text="="
         android:id="@+id/buttonEq"
         android:textStyle="bold"
-        android:onClick="whenEqualsClicked"
+        android:onClick="onEvalClick"
         android:layout_alignTop="@+id/button0"
+        android:layout_toRightOf="@+id/button0"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/buttonSub"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -187,5 +189,40 @@
         android:layout_toStartOf="@+id/button9"
         android:onClick="whenImageClicked"
         android:scaleType="fitXY" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:id="@+id/buttonMul"
+        android:layout_below="@+id/buttonEq"
+        android:layout_alignRight="@+id/resultDisplay"
+        android:layout_alignEnd="@+id/resultDisplay"
+        android:layout_alignLeft="@+id/buttonEq"
+        android:layout_alignStart="@+id/buttonEq"
+        android:textStyle="bold"
+        android:onClick="whenOperatorClicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:id="@+id/buttonDiv"
+        android:layout_below="@+id/button0"
+        android:layout_toRightOf="@+id/imageButton"
+        android:layout_toEndOf="@+id/imageButton"
+        android:textStyle="bold"
+        android:onClick="whenOperatorClicked" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOG ME"
+        android:id="@+id/buttonLog"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/buttonMul"
+        android:layout_alignEnd="@+id/buttonMul"
+        android:onClick="whenLogClicked" />
 
 </RelativeLayout>
